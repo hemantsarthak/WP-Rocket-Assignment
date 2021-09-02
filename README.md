@@ -117,13 +117,13 @@ Path/URL  http://www.example.com/path/to/wp/installation/root/rocket-clean-domai
 
 Guide for [Easy Cron External Cron Setup](https://www.easycron.com/cron-job-tutorials/how-to-set-up-cron-job-for-wordpress)
     
-        2.[Cron-Job](https://cron-job.org/en/) (Free)
+   2. [Cron-Job](https://cron-job.org/en/) (Free)
 You can use cron-job.org to add a cron job for a minute by minute to yearly basis.
 Simply create an account and add the URL for cron job like: http://www.example.com/path/to/wp/installation/root/rocket-clean-domain.php
 
 ![CronJob](https://i.imgur.com/JwUNGFH.png)
 
-    Set the time & enjoy your automated cache cleaning system!
+   Set the time & enjoy your automated cache cleaning system!
 
 3. **Using WP Cron**
 WP-Cron is not actually a real cron job, you can think it is more like a “fake cron job”. These tasks are triggered when someone visits your site: during PHP page loads, WP Cron checks the database to see if there are any scheduled tasks to execute. 
