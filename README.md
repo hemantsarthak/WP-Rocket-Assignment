@@ -1,16 +1,6 @@
-<!-- vscode-markdown-toc -->
-* 1. [Issue 1](#Issue1)
-	* 1.1. [Step by Step Guide:](#StepbyStepGuide:)
-* 2. [Issue 2](#Issue2)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
 # Problem
 A teammate has reached out to you to assist them with a customer’s request.
-##  1. <a name='Issue1'></a>Issue 1
+## Issue 1
 The customer disabled WP Rocket’s automatic cache clearing system. They want you to provide them with a way to clear the following cache files at a specific time they select, e.g. when the site has the least traffic:
 *	HTML
 *	Combined/minified CSS/JavaScript files
@@ -46,7 +36,7 @@ If you want to use wp-cron these two plugins should help:
 [Cache Clearing via Cron Job](https://docs.wp-rocket.me/article/494-how-to-clear-cache-via-cron-job)
 [Cron Jobs EXPLAINED & Creation Guide](https://docs.wp-rocket.me/article/1279-cron-and-wp-rocket#setting-up-cron-job)
 
-###  1.1. <a name='StepbyStepGuide:'></a>Step by Step Guide: 
+### Step by Step Guide: 
 Here is a detailed guide that you can follow as well:
 ##### Creating a Cron Job
 1.	Create a php file named **rocket-clean-domain.php**. You can use a notepad or any code editor you want.
@@ -77,16 +67,27 @@ The credentials for the FTP will be present at different places based on your ho
     If you have any other hosting provider that we missed please let us know we will try to provide you a custom guide for that platform, or you can contact your hosting provider support for your FTP credentials as well. 
 * **Using a File Manager Plugin**
 If you can’t access your FTP credentials etc. you can use a WordPress File Manager like [WP File Manager](https://wordpress.org/plugins/wp-file-manager/) or any other reputed file manager you like and add the file thrugh them as well:
-    1. After Installing & Activating the Plugin Go to file manager
-    ![File Manager](https://i.imgur.com/YoT3oQi.png)
-    2. You will get a file explorer like this
-    ![File Explorer](https://i.imgur.com/m6wVxp4.png)
-    3. Ensure that you are in the root directory & create a new file (it’s the folder [where wp-config.php and wp-load.php are located](recordit.co/jbtM0WPfcw)).
-    ![New File](https://i.imgur.com/QuPi5uo.png)
-    4. Rename the file **rocket-clean-domain.php file** & open the code editor
-    ![Code Editor](https://i.imgur.com/93X7S9o.png)
-    5. Add the code mentioned at the top, save & close.
-    ![Save Code](https://i.imgur.com/5LVl0F8.png)
+
+   1. After Installing & Activating the Plugin Go to file manager
+   
+   	![File Manager](https://i.imgur.com/YoT3oQi.png)
+	
+   2. You will get a file explorer like this
+   
+  	![File Explorer](https://i.imgur.com/m6wVxp4.png)
+   
+   3. Ensure that you are in the root directory & create a new file (it’s the folder [where wp-config.php and wp-load.php are located](recordit.co/jbtM0WPfcw)).
+  	 
+	![New File](https://i.imgur.com/QuPi5uo.png)
+	 
+   4. Rename the file **rocket-clean-domain.php file** & open the code editor
+   	
+	![Code Editor](https://i.imgur.com/93X7S9o.png)
+	
+   5. Add the code mentioned at the top, save & close.
+   	
+	![Save Code](https://i.imgur.com/5LVl0F8.png)
+    
 You have sucessfully created a cron job script, now lets schedule it & run it.
 
     
@@ -108,18 +109,20 @@ Detailed guide to [disable WP Cron](https://kinsta.com/knowledgebase/disable-wp-
 2. **Using External Cron Services** (Easiest)
 Instead of using your own hosting provider/server for the cron job you can use various external services to set up the cron job as:
     1. [Easy Cron](https://www.easycron.com/) (Freemium)
-    [Easy Cron](https://www.easycron.com/) is a service that lets you create cron jobs easily. The free plans let you create cron jobs that run every 20 mins. 
-Just create an account and enter your cron job address with time intervals like 
-Path/URL  http://www.example.com/path/to/wp/installation/root/rocket-clean-domain.php
-![Easy Cron](https://i.imgur.com/Pabh5N5.png)
-Guide for [Easy Cron External Cron Setup](https://www.easycron.com/cron-job-tutorials/how-to-set-up-cron-job-for-wordpress)
-    
-        2.[Cron-Job](https://cron-job.org/en/) (Free)
-You can use cron-job.org to add a cron job for a minute by minute to yearly basis.
-Simply create an account and add the URL for cron job like: http://www.example.com/path/to/wp/installation/root/rocket-clean-domain.php
-![CronJob](https://i.imgur.com/JwUNGFH.png)
+    	[Easy Cron](https://www.easycron.com/) is a service that lets you create cron jobs easily. The free plans let you create cron jobs that run every 20 mins. 
+	Just create an account and enter your cron job address with time intervals like Path/URL  http://www.example.com/path/to/wp/installation/root/rocket-clean-domain.php
 
-    Set the time & enjoy your automated cache cleaning system!
+	![Easy Cron](https://i.imgur.com/Pabh5N5.png)
+
+	Guide for [Easy Cron External Cron Setup](https://www.easycron.com/cron-job-tutorials/how-to-set-up-cron-job-for-wordpress)
+    
+   2. [Cron-Job](https://cron-job.org/en/) (Free)
+	You can use cron-job.org to add a cron job for a minute by minute to yearly basis.
+	Simply create an account and add the URL for cron job like: http://www.example.com/path/to/wp/installation/root/rocket-clean-domain.php
+
+	![CronJob](https://i.imgur.com/JwUNGFH.png)
+
+   Set the time & enjoy your automated cache cleaning system!
 
 3. **Using WP Cron**
 WP-Cron is not actually a real cron job, you can think it is more like a “fake cron job”. These tasks are triggered when someone visits your site: during PHP page loads, WP Cron checks the database to see if there are any scheduled tasks to execute. 
@@ -132,7 +135,7 @@ The way WP Cron works has some drawbacks:
     [Cloudways Wordpress Cron Job](https://www.cloudways.com/blog/wordpress-cron-job)
     [Kinsta Wordpress Cron Job](https://kinsta.com/knowledgebase/wordpress-cron-job/)
 
-##  2. <a name='Issue2'></a>Issue 2
+## Issue 2
 Your teammate sent your instructions and code to the customer.
 They implemented them but the cache isn’t cleared.
 
@@ -196,4 +199,4 @@ I noticed that the https://docs.wp-rocket.me/article/1279-cron-and-wp-rocket did
 ![Netlify](https://i.imgur.com/dHOeUJP.png)
 
 # Notes
-I apologize for the delayed submission, hope you will still consider me for a role at WP Rocket. Please let me know if you want me to create a full plugin for the cache auto clean as well. 
+I apologize for the delayed submission, hope you will still consider me for a role at WP Rocket. Please let me know if you want me to create a full plugin for the cache auto clean as well.
