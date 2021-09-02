@@ -67,16 +67,18 @@ The credentials for the FTP will be present at different places based on your ho
     If you have any other hosting provider that we missed please let us know we will try to provide you a custom guide for that platform, or you can contact your hosting provider support for your FTP credentials as well. 
 * **Using a File Manager Plugin**
 If you can’t access your FTP credentials etc. you can use a WordPress File Manager like [WP File Manager](https://wordpress.org/plugins/wp-file-manager/) or any other reputed file manager you like and add the file thrugh them as well:
-    1. After Installing & Activating the Plugin Go to file manager
-    	![File Manager](https://i.imgur.com/YoT3oQi.png)
-    2. You will get a file explorer like this
-   	![File Explorer](https://i.imgur.com/m6wVxp4.png)
-    3. Ensure that you are in the root directory & create a new file (it’s the folder [where wp-config.php and wp-load.php are located](recordit.co/jbtM0WPfcw)).
-   	![New File](https://i.imgur.com/QuPi5uo.png)
-    4. Rename the file **rocket-clean-domain.php file** & open the code editor
-    ![Code Editor](https://i.imgur.com/93X7S9o.png)
-    5. Add the code mentioned at the top, save & close.
-    ![Save Code](https://i.imgur.com/5LVl0F8.png)
+
+   1. After Installing & Activating the Plugin Go to file manager
+   ![File Manager](https://i.imgur.com/YoT3oQi.png)
+   2. You will get a file explorer like this
+   ![File Explorer](https://i.imgur.com/m6wVxp4.png)
+   3. Ensure that you are in the root directory & create a new file (it’s the folder [where wp-config.php and wp-load.php are located](recordit.co/jbtM0WPfcw)).
+   ![New File](https://i.imgur.com/QuPi5uo.png)
+   4. Rename the file **rocket-clean-domain.php file** & open the code editor
+   ![Code Editor](https://i.imgur.com/93X7S9o.png)
+   5. Add the code mentioned at the top, save & close.
+   ![Save Code](https://i.imgur.com/5LVl0F8.png)
+    
 You have sucessfully created a cron job script, now lets schedule it & run it.
 
     
