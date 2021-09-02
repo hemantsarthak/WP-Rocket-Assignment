@@ -69,8 +69,8 @@ The credentials for the FTP will be present at different places based on your ho
 If you can’t access your FTP credentials etc. you can use a WordPress File Manager like [WP File Manager](https://wordpress.org/plugins/wp-file-manager/) or any other reputed file manager you like and add the file thrugh them as well:
 
    1. After Installing & Activating the Plugin Go to file manager
-   ![File Manager](https://i.imgur.com/YoT3oQi.png)
    
+   ![File Manager](https://i.imgur.com/YoT3oQi.png)
    2. You will get a file explorer like this
    
    ![File Explorer](https://i.imgur.com/m6wVxp4.png)
