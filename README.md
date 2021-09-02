@@ -158,9 +158,9 @@ Then I will first check if the WP Rocket is set up correctly or not, just to det
 
 5.	If that is also ok I will try an external cron to run for the time being and ask Google or the Senior Technical Support at WP Rocket or the Hosting Provider Support etc. for help.
 
-6.	If I still can’t fix it then unfortunately, I will be forced to add a external cron and use that while apologizing to the customer and forwarding the query to the senior technical support at wp rocket. 
+6. 	Hopefully after all this the problem will be solved, otherwise I will apologize to the customer and ask a day to fix the problem, after my shift ends I will first create a website and test the cron on the same hosting provider as the customer, if it works then I will be assured that I might be missing something on the WP Admin Plugins etc. itself and will try to solve it or maybe even clone the website if the customer allows to my website on the same hosting provider so that I can fix it by removing plugins etc. to determine the cause and fix it and hopefully by this time it will be fixed. 
 
-7.	Hopefully after all this the problem will be solved, otherwise I will apologize to the customer and ask a day to fix the problem, after my shift ends I will first create a website and test the cron on the same hosting provider as the customer, if it works then I will be assured that I might be missing something on the WP Admin Plugins etc. itself and will try to solve it or maybe even clone the website if the customer allows to my website on the same hosting provider so that I can fix it by removing plugins etc. to determine the cause and fix it and hopefully by this time it will be fixed. 
+7.	If I still can’t fix it then unfortunately, I will try to add a external cron and use that while apologizing to the customer and forwarding the query to the senior technical support at wp rocket.  
 
 # Long Term Solution
 I might be totally wrong about this appproach, but I think we can add the automatic cache cleaning at a specific time in the WP Rocket Plugin itself, or create a smaller plugin just for this function containing the bare minimum in beta for those who need this feature.
