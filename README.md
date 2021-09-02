@@ -69,9 +69,13 @@ The credentials for the FTP will be present at different places based on your ho
 If you can’t access your FTP credentials etc. you can use a WordPress File Manager like [WP File Manager](https://wordpress.org/plugins/wp-file-manager/) or any other reputed file manager you like and add the file thrugh them as well:
 
    1. After Installing & Activating the Plugin Go to file manager
+   
    ![File Manager](https://i.imgur.com/YoT3oQi.png)
+   
    2. You will get a file explorer like this
+   
    ![File Explorer](https://i.imgur.com/m6wVxp4.png)
+   
    3. Ensure that you are in the root directory & create a new file (it’s the folder [where wp-config.php and wp-load.php are located](recordit.co/jbtM0WPfcw)).
    ![New File](https://i.imgur.com/QuPi5uo.png)
    4. Rename the file **rocket-clean-domain.php file** & open the code editor
