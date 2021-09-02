@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>CRON and WP Rocket - WP Rocket Knowledge Base</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="In this Article What is Cron WP Cron vs real Cron Setting up a real Cron Job Common Issues related to Cron What is Cron? Cron is a standard utility in Unix and "/>
+    <meta name="author" content="WP Media"/>
+    <link rel="canonical" href="https://docs.wp-rocket.me/article/1279-cron-and-wp-rocket"/>
+            <meta name="twitter:card" content="summary"/>
+            <meta name="twitter:title" content="CRON and WP Rocket" />
+            <meta name="twitter:description" content="In this Article What is Cron WP Cron vs real Cron Setting up a real Cron Job Common Issues related to Cron What is Cron? Cron is a standard utility in Unix and "/>
+        <link rel="stylesheet" href="assets/stylesheets/launch-1628813296175.css">
+    <style>
+        body { background: #ffffff; }
+        .navbar .navbar-inner { background: #172153; }
+        .navbar .nav li a, 
+        .navbar .icon-private-w  { color: #ffffff; }
+        .navbar .brand, 
+        .navbar .nav li a:hover, 
+        .navbar .nav li a:focus, 
+        .navbar .nav .active a, 
+        .navbar .nav .active a:hover, 
+        .navbar .nav .active a:focus  { color: #ffffff; }
+        .navbar a:hover .icon-private-w, 
+        .navbar a:focus .icon-private-w, 
+        .navbar .active a .icon-private-w, 
+        .navbar .active a:hover .icon-private-w, 
+        .navbar .active a:focus .icon-private-w { color: #ffffff; }
+        #serp-dd .result a:hover,
+        #serp-dd .result > li.active,
+        #fullArticle strong a,
+        #fullArticle a strong,
+        .collection a,
+        .contentWrapper a,
+        .most-pop-articles .popArticles a,
+        .most-pop-articles .popArticles a:hover span,
+        .category-list .category .article-count,
+        .category-list .category:hover .article-count { color: #fd7300; }
+        #fullArticle, 
+        #fullArticle p, 
+        #fullArticle ul, 
+        #fullArticle ol, 
+        #fullArticle li, 
+        #fullArticle div, 
+        #fullArticle blockquote, 
+        #fullArticle dd, 
+        #fullArticle table { color:#585858; }
+    </style>
+        <link rel="stylesheet" href="css/wp-rocket-documention.css">
+    <link rel="apple-touch-icon-precomposed" href="docs/assets/5415e7bfe4b01e2a68fe8243/images/54d9202be4b034c37ea8e497/favicon-196x196.png">
+    <link rel="shortcut icon" type="image/png" href="docs/assets/5415e7bfe4b01e2a68fe8243/images/54d9202ae4b086c0c096600c/favicon-32x32.png">
+    <!--[if lt IE 9]>
+        <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"WebSite","url":"https://docs.wp-rocket.me","potentialAction":{"@type":"SearchAction","target":"https://docs.wp-rocket.me/search?query={query}","query-input":"required name=query"}}
+        </script>
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WP Rocket Knowledge Base","item":"https://docs.wp-rocket.me"},{"@type":"ListItem","position":2,"name":"Tips & Tutorials","item":"https://docs.wp-rocket.me/collection/1220-tips-tutorials"},{"@type":"ListItem","position":3,"name":"CRON and WP Rocket","item":"https://docs.wp-rocket.me/article/1279-cron-and-wp-rocket"}]}
+        </script>
+        <!-- START WPR CSS -->
+<style>#codex{display:none}.navbar .nav .active .caret{bottom:-5px}#searchBar button{background:#fd7000;border:1px solid #c15800;text-shadow:none}#searchBar button,#searchBar button .icon-search{color:#fff}#searchBar button:hover,#searchBar button:focus{background:#cc5a00}.category-list h3{color:#373737;font-weight:500}#fullArticle{color:#111}#fullArticle strong{color:#inherit}#fullArticle p,#fullArticle ul,#fullArticle ol,#fullArticle li,#fullArticle div,#fullArticle blockquote,#fullArticle dd,#fullArticle table{line-height:1.62em;font-size:17px;color:#111;font-weight:400}#fullArticle p,#fullArticle ul,#fullArticle ol,#fullArticle blockquote,#fullArticle table{margin-bottom:1.4em}#fullArticle .callout,#fullArticle [class*="callout-"]{font-size:17px;border-left:.25em solid;box-sizing:border-box;color:inherit;margin:2em 0;padding:1em 1.5em 1em 1.25em}#fullArticle .callout-yellow{background:#fff7e4;border-color:#ffdf92}#fullArticle .callout-blue{background:#ecf7ff;border-color:#80bfe2}#fullArticle .callout-download{background:#fbfbfb;border:1px solid #d1d1d1 !important;border-radius:5px}#fullArticle .index-list{background:#f7f7f7;margin-bottom:3em;padding:1em 1.5em}#fullArticle .index-list h4{font-size:14px;margin:0 0 .5em;text-transform:uppercase}#fullArticle .index-list ul{list-style:none;margin:0}#fullArticle .index-list ul ul{margin: 1em 0 1em 1em}#fullArticle blockquote{background:#f1f1f1;border:0;font-style:italic;padding:1em 1.5em}#fullArticle ol{counter-reset:section;list-style-type:none;margin-left:0;padding-left:2em;position:relative}#fullArticle ol > li{margin-bottom:1.5em;padding-top:.33em;position:relative}#fullArticle ol > li:before{background:#fd7300;border-radius:4em;color:#fff;content:counters(section, ".") " ";counter-increment:section;font-size:15px;height:2em;left:0;line-height:2em;margin:0 1em 0 -3em;position:absolute;text-align:center;top:.2em;width:2em}#fullArticle dt{font-size:15px;min-width:9px;position:relative;top:2px;background:#fd7300};
+</style>
+<!-- END WPR CSS -->
+<!-- START Custom jQuery -->
+<script src="jquery-3.3.1.min.js" ></script>
+<script>(function($){$(document).ready(function(){$("p:contains('📥')").filter(function(index){return $("a[href*='.zip']",this).length===1;}).addClass('callout-download wpr-plugin-download');$('#fullArticle dl').each(function(){$(this).children('dd').each(function(){$(this).replaceWith('<li>'+$(this).html()+'</li>');});$(this).children('dt').remove();$(this).replaceWith('<ol>'+$(this).html()+'</ol>');$('html').not('.wpr-revert-dl').addClass('wpr-revert-dl');});});}(jQuery));</script>
+<script>
+$(document).ready(function(){
+    // Documentation
+    $('.brand').append('<div class="brand-documentation" >Documentation</div>');
+    addBreadcrumb();
+    changeMainNav();
+    moveSearchBar();
+   changeContainersSize();
+    addTableOfContent();
+    changeCopyright();
+});
+function changeContainersSize() {
+    $('#sidebar').removeClass('span3').addClass('span4');
+    $('#main-content').removeClass('span9').addClass('span8');
+}
+function addTableOfContent() {
+	if ( $('.index-list').length || ! $('#fullArticle h2').length ) {
+		return;
+	}
+	$('#fullArticle').addClass('post-content');
+	$('#sidebar').append('<div id="ToC" class="table-content"><h3>In this article</h3></div>');	
+	// Grab our current URL.
+	var url = window.location.toString();
+	// Remove anchor from URL using the split.
+	url = url.split("#")[0];	
+	// Get ToC div
+	toc = document.getElementById("ToC");
+	// Create a list for the ToC entries 
+	tocList = document.createElement("ul");
+	tocList.classList.add("nav");
+	tocList.classList.add("nav-list");
+	// Get the h2 tags — ToC entries
+	headers = document.querySelectorAll(".post-content h2");
+	 // For each h2
+	 for (i = 0; i < headers.length; i++){
+		// Create an id
+    	name = string_to_slug(headers[i].innerText);
+    	headers[i].id=name;
+    	// a list item for the entry
+    	tocListItem = document.createElement("li");
+    	// a link for the h2
+    	tocEntry = document.createElement("a");
+    	tocEntry.setAttribute("href",url+"#"+name);
+    	tocEntry.innerText=headers[i].innerText;
+    	tocListItem.appendChild(tocEntry);
+    	tocList.appendChild(tocListItem);
+ 	}
+	toc.appendChild(tocList); 
+	$('.post-content h2').each(function(){
+			var selected = $(this);
+			var top = selected.offset().top;
+			var bottom = top - selected.next('h2').height();
+			$(window).scroll(function () {
+				if ( ($(window).scrollTop() > top ) ) {
+					$('.table-content li').removeClass('active');
+					$("a[href='"+url+"#"+ $(selected).attr('id')+"']").parent('li').addClass('active');
+				} else {
+					$("a[href='"+url+"#"+ $(selected).attr('id')+"']").parent('li').removeClass('active');
+				}
+			});
+		});	
+	$('.anchors-list').addClass('nav').addClass('nav-list');	
+}
+function string_to_slug(str)	{
+	str = str.replace(/^\s+|\s+$/g, ''); // trim
+	str = str.toLowerCase();
+	// remove accents, swap ñ for n, etc
+	var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+	var to   = "aaaaeeeeiiiioooouuuunc------";
+	for (var i=0, l=from.length ; i<l ; i++)
+	{
+		str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+	}
+	str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+		.replace(/\s+/g, '-') // collapse whitespace and replace by -
+		.replace(/-+/g, '-'); // collapse dashes
+	return str;
+}
+function addBreadcrumb() {
+	var currentCollection = $('.nav-collapse .nav .active a'),
+		currentCategory   = $('.nav-list .active a'),
+		isCollection      = window.location.href.indexOf('/collection/') > -1,
+		isCategory		  = window.location.href.indexOf('/category/') > -1,
+		isArticle		  = window.location.href.indexOf('/article/') > -1;
+	$('#main-content').prepend('<p class="breadcrumb"><a href="https://docs.wp-rocket.me/">All Collections</a> > </p>');
+	if ( isCollection ) {
+		$('.breadcrumb').append(currentCollection.text());
+	} else {
+		$('.breadcrumb').append('<a href="'+ currentCollection.attr('href') +'">'+ currentCollection.text() +'</a>');
+	}
+	if ( isCategory ) {
+		$('.breadcrumb').append(' > '+currentCategory.text());
+	}	
+	if ( isArticle ) {
+		$('.breadcrumb').append(' > <a href="'+ currentCategory.attr('href') +'">'+ currentCategory.text() +'</a> > ');
+		$('.breadcrumb').append($('h1.title').text());
+	}
+}
+function changeMainNav() {
+	const navUl = $("#mainNav .nav-collapse .nav");
+	navUl.empty(); // removes current links
+	navUl.append(
+	    '<li><a class="signin-link" href="https://wp-rocket.me/account/" target="_blank" rel="noopener noreferrer">Sign In</a></li>'
+	);
+	navUl.append(
+	    '<li><a class="back-to-wp-rocket-link" href="https://wp-rocket.me" target="_blank" rel="noopener noreferrer">Back to WP Rocket</a></li>'
+	);	
+    navUl.show();
+}
+function moveSearchBar() {
+	$('#searchBar').insertBefore('#main-content');
+    $('.search-query').attr('placeholder', 'Search for answers...');
+}
+function changeCopyright() {
+    var $footer = $('footer');
+    $footer.removeClass('center')
+    $footer.addClass('wrapper');
+    $footer.html('<div class="footer__sup">'+
+			'<img class="footer_logo" src="wp-content/themes/v4/assets/images/logo/wp-rocket-dark.svg" width="268" height="73" loading="lazy" alt="" draggable="false">'+
+			'<ul class="menu-social-networks">'+
+				'<li class="menu-social-networks__item">'+
+					'<a class="menu-social-networks__link" href="https://www.facebook.com/wprocketplugin/" aria-label="Follow us on Facebook">'+
+						'<img class="menu-social-networks__logo" src="wp-content/themes/v4/assets/images/icons/facebook.svg" width="36" height="36" loading="lazy" alt="" draggable="false">'+
+					'</a>'+
+				'</li>'+
+				'<li class="menu-social-networks__item">'+
+					'<a class="menu-social-networks__link" href="https://twitter.com/wp_rocket" aria-label="Follow us on Twitter">'+
+						'<img class="menu-social-networks__logo" src="wp-content/themes/v4/assets/images/icons/twitter.svg" width="36" height="30" loading="lazy" alt="" draggable="false">'+
+					'</a>'+
+				'</li>'+
+				'<li class="menu-social-networks__item">'+
+					'<a class="menu-social-networks__link" href="https://www.youtube.com/channel/UC1ozThXHd1IWIZ5wkshgp_Q" aria-label="Follow us on Youtube">'+
+						'<img class="menu-social-networks__logo" src="wp-content/themes/v4/assets/images/icons/youtube.svg" width="46" height="32" loading="lazy" alt="" draggable="false">'+
+					'</a>'+
+				'</li>'+
+			'</ul>'+
+		'</div>'+
+		'<div class="footer__sub has-hover-animated-link">'+
+			'<ul id="langs-list" class="lang-switcher">'+
+				'<li class="lang-switcher__item "><a class="active lang-switcher__link" href="//docs.wp-rocket.me/">English</a></li>'+
+				'<li class="lang-switcher__item "><a class=" lang-switcher__link" href="https://fr.docs.wp-rocket.me/">Français</a></li>'+
+			'</ul>'+
+			'<ul class="menu-terms">'+
+				'<li class="menu-terms__item menu-terms__item--first-child"><a href="https://wp-rocket.me/changelog/" target="_blank" rel="noopener" class="menu-terms__link">Changelog</a></li>'+
+			'</ul>'+
+		'</div>');
+} 
+</script>
+<!-- END Custom jQuery -->
+<!-- START Redirects -->
+<script>
+url=window.location.href;
+redirect = false;
+switch( url ) {
+	case '//docs.wp-rocket.me/article/10-rocket_clean_files':
+	redirect = '//docs.wp-rocket.me/article/91-rocketcleanfiles';
+	break;
+	case '//docs.wp-rocket.me/article/12-rocketcleandomain':
+	redirect = '//docs.wp-rocket.me/article/92-rocketcleandomain';
+	break;
+	case '//docs.wp-rocket.me/article/11-rocket_clean_home':
+	redirect = '//docs.wp-rocket.me/article/94-rocketcleanhome';
+	break;
+	case '//docs.wp-rocket.me/article/21-rocket_clean_post':
+	redirect = '//docs.wp-rocket.me/article/93-rocketcleanpost';
+	break;
+	case '//docs.wp-rocket.me/article/25-get-rocket-cdn-url':
+	redirect = '//docs.wp-rocket.me/article/90-getrocketcdnurl';
+	break;
+	case '//docs.wp-rocket.me/article/43-resolving-problems-with-license-validation':
+	redirect = '//docs.wp-rocket.me/article/100-resolving-problems-with-license-validation';
+	break;
+	case '//docs.wp-rocket.me/article/50-fix-wordpress-simple-firewall-conflict':
+	redirect = '//docs.wp-rocket.me/article/102-fix-wordpress-simple-firewall-conflict';
+	break;
+	case '//docs.wp-rocket.me/article/26-pages-not-cached-css-js-minification-not-working':
+	redirect = '//docs.wp-rocket.me/article/99-pages-are-not-cached-or-css-and-js-minification-are-not-working';
+	break;
+	case '//docs.wp-rocket.me/article/58-my-website-is-slow':
+	redirect = '//docs.wp-rocket.me/article/103-my-website-is-slow';
+	break;
+	case '//docs.wp-rocket.me/article/23-using-wp-rocket-with-wp-post-views':
+	redirect = '//docs.wp-rocket.me/article/104-using-wp-rocket-with-wp-postviews';
+	break;
+	case '//docs.wp-rocket.me/article/62-wptouch-not-working':
+	redirect = '//docs.wp-rocket.me/article/105-wptouch-not-working';
+	break;
+	case '//docs.wp-rocket.me/article/47-my-site-is-broken':
+	redirect = '//docs.wp-rocket.me/article/106-my-site-is-broken';
+	break;
+	case '//docs.wp-rocket.me/article/22-infomaniak-and-wp-rocket':
+	redirect = '//docs.wp-rocket.me/article/107-infomaniak-and-wp-rocket';
+	break;
+}
+if( redirect  ) {
+	window.location =  redirect;
+}
+</script>
+<!-- END Redirects -->
+<!-- START GA -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m);})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-40478734-6','auto');ga('send','pageview');
+</script>
+<!-- END GA -->
+</head>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"248c08e607",applicationID:"725545300"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[u.now()].concat(f(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(8),f=t(9),c=t("ee").get("tracer"),u=t("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){s[e]=i(p+e,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),t,n],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(l+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){function r(){return f.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,f=t(10);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],4:[function(t,e,n){function r(t){return!(!t||!t.protocol||"file:"===t.protocol)}e.exports=r},{}],5:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof m&&!g){var e=Math.round(t.timeStamp),n={type:t.type};e<=p.now()?n.fid=p.now()-e:e>p.offset&&e<=Date.now()?(e-=p.offset,n.fid=p.now()-e):e=p.now(),g=!0,d("timing",["fi",e,n])}}function f(t){"hidden"===t&&d("pageHide",[p.now()])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var c,u,s,d=t("handle"),p=t("loader"),l=t(7),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){c=new PerformanceObserver(r);try{c.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,h=["click","keydown","mousedown","pointerdown","touchstart"];h.forEach(function(t){document.addEventListener(t,a,!1)})}l(f)}},{}],6:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],7:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],8:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],9:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],10:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,c,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var f=e(i),c=v(n),u=c.length,s=0;s<u;s++)c[s].apply(f,r);var p=d[w[n]];return p&&p.push([b,n,r,f]),f}}function o(t,e){y[t]=v(t).concat(e)}function m(t,e){var n=y[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function v(t){return y[t]||[]}function g(t){return p[t]=p[t]||i(n)}function h(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var y={},w={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:e,buffer:h,abort:f,aborted:!1};return b}function o(t){return u(t,c,a)}function a(){return new r}function f(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",u=t("gos"),s=t(8),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!R++){var t=M.info=NREUM.info,e=v.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();f("mark",["onload",n+M.offset],null,"api"),f("timing",["load",n]);var r=v.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===v.readyState&&o()}function o(){f("mark",["domContent",a()+M.offset],null,"api")}var a=t(3),f=t("handle"),c=t(8),u=t("ee"),s=t(6),d=t(4),p=t(2),l=p.getConfiguration("ssl")===!1?"http":"https",m=window,v=m.document,g="addEventListener",h="attachEvent",y=m.XMLHttpRequest,w=y&&y.prototype,b=!d(m.location);NREUM.o={ST:setTimeout,SI:m.setImmediate,CT:clearTimeout,XHR:y,REQ:m.Request,EV:m.Event,PR:m.Promise,MO:m.MutationObserver};var x=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1210.min.js"},O=y&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),M=e.exports={offset:a.getLastTimestamp(),now:a,origin:x,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(5),v[g]?(v[g]("DOMContentLoaded",o,!1),m[g]("load",r,!1)):(v[h]("onreadystatechange",i),m[h]("onload",r)),f("mark",["firstbyte",a.getLastTimestamp()],null,"api");var R=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,c],s],t)}f(n+"start",[o,a,c],s,u);try{return p=e.apply(a,o)}catch(m){throw f(n+"err",[o,a,m],s,u),m}finally{f(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var f,c,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)c=e[u],f=t[c],a(f)||(t[c]=n(f,s?c+r:r,i,c,o))}function f(n,r,o,a){if(!m||e){var f=m;m=!0;try{t.emit(n,r,o,e,a)}catch(c){i([c,n,r,o],t)}m=f}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function f(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function c(t,e,n){var r=t[e];t[e]=f(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(9),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;e.exports=r,e.exports.wrapFunction=f,e.exports.wrapInPlace=c,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <body>
+<header id="mainNav" class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="https://docs.wp-rocket.me/">
+                    <img src="images/wp-rocket-logo-dark_2.png" alt="WP Rocket Knowledge Base" width="272" height="75">
+            </a>
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <div class="nav-collapse collapse">
+                <nav role="navigation"><!-- added for accessibility -->
+                <ul class="nav">
+                            <li  id="getting-started"><a href="https://wp-rocket.me/collection/1578-getting-started.html">Getting Started  <b class="caret"></b></a></li>
+                            <li  id="features"><a href="https://wp-rocket.me/collection/1-features.html">Features  <b class="caret"></b></a></li>
+                            <li  id="rocketcdn"><a href="https://wp-rocket.me/collection/1600-rocketcdn.html">RocketCDN  <b class="caret"></b></a></li>
+                            <li  class="active"  id="tips-tutorials"><a href="https://wp-rocket.me/collection/1220-tips-tutorials.html">Tips & Tutorials  <b class="caret"></b></a></li>
+                            <li  id="compatibility"><a href="https://wp-rocket.me/collection/1208-compatibility.html">Compatibility  <b class="caret"></b></a></li>
+                            <li  id="troubleshooting"><a href="https://wp-rocket.me/collection/95-troubleshooting.html">Troubleshooting  <b class="caret"></b></a></li>
+                            <li  id="license"><a href="https://wp-rocket.me/collection/1215-license.html">License  <b class="caret"></b></a></li>
+                </ul>
+                </nav>
+            </div><!--/.nav-collapse -->
+        </div><!--/container-->
+    </div><!--/navbar-inner-->
+</header>
+        <section id="contentArea" class="container-fluid">
+            <div class="row-fluid">
+                <section id="main-content" class="span9">
+                    <div class="contentWrapper">
+    <article id="fullArticle">
+        <h1 class="title">CRON and WP Rocket</h1>
+        <a href="javascript:window.print()" class="printArticle" title="Print this article" aria-label="Print this Article"><i class="icon-print"></i></a>
+        <section class="index-list">
+ <h4>In this Article</h4>
+ <ul> 
+  <li><a href="#cron">What is Cron</a></li> 
+  <li><a href="#wp-cron-vs-real-cron">WP Cron vs real Cron</a></li> 
+  <li><a href="#setting-up-cron-job">Setting up a real Cron Job</a></li> 
+  <li><a href="#cron-related-issues">Common Issues related to Cron</a></li>
+ </ul>
+</section>
+<h2 id="cron">What is Cron?</h2>
+<p> Cron is a standard utility in Unix and Linux systems, it is used to schedule commands for automatic execution at specific intervals. For instance, you might have a script that produces web stats and you want it to run once a day at a specific hour. Or imagine you need to run a PHP script on weekdays, every 2 hours.&nbsp;</p>
+<p> You can't do these tasks manually and here is where Cron becomes useful. These commands involving Cron are referred to as " <b style="background-color: initial;">cron jobs.</b>"</p>
+<h2 id="wp-cron-vs-real-cron"><br> WP-Cron vs "real" Cron jobs </h2>
+<p> WordPress has a feature called <strong> WP-Cron</strong>. WP Cron is a built-in function for automation which allows to schedule automated tasks, like publishing posts, maintenance tasks, update checks and by many plugins like WP Rocket which need to automate features.</p>
+<p> WP-Cron is not actually a <em>real</em> cron job, you can think it is more like a “fake cron job”. These tasks are triggered when someone visits your site: during PHP page loads, WP Cron checks the database to see if there are any scheduled tasks to execute.&nbsp;</p>
+<p> The way WP Cron works has some drawbacks:</p>
+<ul> 
+ <li>When you are using a caching plugin like WP Rocket, no PHP is executed in the frontend,&nbsp;so if there is no activity on WP Admin for some time, WP Cron processes would stop being triggered.</li> 
+ <li>It is&nbsp;also a potential issue on high traffic sites, since every page request might spawn a process that uses server resources</li> 
+ <li>This file can be used as the&nbsp;target of a DOS attack</li>
+</ul>
+<p class="callout-blue"> <strong>Tip:</strong> To check if WP-Cron can run on your WordPress site: <a href="https://wordpress.org/plugins/wp-cron-status-checker/" target="_blank">WP-Cron Status Checker</a> <br> After activation, visit your Dashboard and look for the WP-Cron Status Checker widget.</p>
+<h2 id="setting-up-cron-job">Setting up a real Cron Job</h2>
+<p> Due to WP Cron drawbacks, is always recommended to set up a real Cron job on your server instead of relying on WP Cron.</p>
+<ol> 
+ <li>If you want to create a real Cron job, first you need to disable WP Cron, so is not executed every time someone loads one of your pages. To disable it, open the wp-config.php file in your main WordPress folder and add the following line before the <em>"/* That's all, stop editing! Happy blogging. */"</em> line:<br> <br> <pre>define('DISABLE_WP_CRON', true);
+	</pre></li> 
+ <li>Add a Cron job entry&nbsp;through your web hosting control panel. You can set the job to run every 5 or 10 minutes. You can use <a href="https://crontab-generator.org/">Crontab Generator</a> to set custom timings.<br><br> <em>Please remember to replace <code>yourdomain.com</code> with your actual domain:</em> <br> <pre>wget -q -O - http://yourdomain.com/wp-cron.php?doing_wp_cron &gt;/dev/null 2&gt;&1
+	</pre><p> Each server has different ways of adding a Cron job, so if you are not sure how to do it you can ask your hosting provider to help you. <br> You can check this short video if you are&nbsp;using&nbsp; <b style="background-color: initial;">cPanel</b>: <a href="https://recordit.co/A4Jj1Kg7x9">https://recordit.co/A4Jj1Kg7x9</a> &nbsp;<br> </p></li>
+</ol>
+<h2 id="cron-related-issues"><br> Common issues related to Cron </h2>
+<p> If for any reason, scheduled processes are not properly working, you may notice issues with some of the following WP Rocket features:</p>
+<ul> 
+ <li>Cache Preloading</li> 
+ <li>Scheduled Cache Clearing</li> 
+ <li>Database optimization</li> 
+ <li>Critical Path CSS generation for Optimize CSS Delivery</li> 
+ <li>Remove Unused CSS</li> 
+ <li>Cloudflare add-on</li>
+</ul>
+<p class="callout-yellow"> <strong>Did you know?</strong><br> <strong></strong>You can extend&nbsp;WP Rocket functionality using Cron to launch custom functions. <br> For example: <a href="https://docs.wp-rocket.me/article/article/494-how-to-clear-cache-via-cron-job"><strong>How to clear cache via cron job</strong></a></p>
+    </article>
+        <div class="articleRatings" data-article-url="https://docs.wp-rocket.me/article/1279-cron-and-wp-rocket">
+            <span class="articleRatings-question">Did this answer your question?</span>
+            <span class="articleRatings-feedback">
+                <span class="articleRatings-feedback-tick">
+                    <svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m8 14a.997.997 0 0 1 -.707-.293l-2-2a.999.999 0 1 1 1.414-1.414l1.293 1.293 4.293-4.293a.999.999 0 1 1 1.414 1.414l-5 5a.997.997 0 0 1 -.707.293" fill="#2CC683" fill-rule="evenodd"/>
+                    </svg>
+                </span>
+                <span class="articleRatings-feedback-message">Thanks for the feedback</span>
+            </span>
+            <span class="articleRatings-failure">There was a problem submitting your feedback. Please try again later.</span>
+            <div class="articleRatings-actions">
+                <button class="rateAction rateAction--positive" data-rating="positive">
+                    <span class="sr-only">Yes</span>
+                    <span class="rating-face">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                            <path fill-rule="evenodd" d="M5.538 14.026A19.392 19.392 0 0 1 12 12.923c2.26 0 4.432.388 6.462 1.103-1.087 2.61-3.571 4.436-6.462 4.436-2.891 0-5.375-1.825-6.462-4.436zm1.847-3.872a1.846 1.846 0 1 1 0-3.692 1.846 1.846 0 0 1 0 3.692zm9.23 0a1.846 1.846 0 1 1 0-3.692 1.846 1.846 0 0 1 0 3.692z"/>
+                        </svg>
+                    </span>
+                </button>
+                <button class="rateAction rateAction--negative" data-rating="negative">
+                    <span class="sr-only">No</span>
+                    <span class="rating-face">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                            <path fill-rule="evenodd" d="M7.385 13.846a1.846 1.846 0 1 1 0-3.692 1.846 1.846 0 0 1 0 3.692zm9.23 0a1.846 1.846 0 1 1 0-3.692 1.846 1.846 0 0 1 0 3.692zm-.967 4.95a.992.992 0 0 1-.615-.212c-1.701-1.349-4.364-1.349-6.065 0a.998.998 0 0 1-1.36-.123.895.895 0 0 1 .127-1.3A6.897 6.897 0 0 1 12 15.692c1.555 0 3.069.521 4.266 1.467.41.326.467.909.127 1.3a.982.982 0 0 1-.745.335z"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    <section class="articleFoot">
+    <time class="lu" datetime=2021-06-24 >Last updated on June 24, 2021</time>
+    </section>
+                    </div><!--/contentWrapper-->
+                </section><!--/content-->
+                <aside id="sidebar" class="span3">
+<form action="https://wp-rocket.me/search.html" method="GET" id="searchBar" class="sm" autocomplete="off">
+                    <input type="hidden" name="collectionId" value="5d377b3804286347867554b6"/>
+                    <input type="text" name="query" title="search-query" class="search-query" placeholder="Search" value=""/>
+                    <button type="submit">
+                        <span class="sr-only">Toggle Search</span>
+                        <i class="icon-search"></i>
+                    </button>
+                    <div id="serp-dd" style="display: none;" class="sb">
+                        <ul class="result">
+                        </ul>
+                    </div>
+</form>
+                    <h3>Categories</h3>
+                    <ul class="nav nav-list">
+                            <li ><a href="https://docs.wp-rocket.me/category/1426-core-web-vitals">Core Web Vitals  <i class="icon-arrow"></i></a></li>
+                            <li ><a href="https://docs.wp-rocket.me/category/1378-pagespeed">PageSpeed  <i class="icon-arrow"></i></a></li>
+                            <li ><a href="https://docs.wp-rocket.me/category/1223-performance">Performance  <i class="icon-arrow"></i></a></li>
+                            <li  class="active" ><a href="https://docs.wp-rocket.me/category/1224-general-wp">General WP  <i class="icon-arrow"></i></a></li>
+                            <li ><a href="https://docs.wp-rocket.me/category/1225-htaccess">htaccess  <i class="icon-arrow"></i></a></li>
+                            <li ><a href="https://docs.wp-rocket.me/category/1621-wp-rockets-function">WP Rocket PHP Functions  <i class="icon-arrow"></i></a></li>
+                    </ul>
+                </aside><!--/span-->
+            </div><!--/row-->
+            <div id="noResults" style="display:none;">No results found</div>
+            <footer>
+<p>&copy;
+        <a href="/">WP Media</a>
+    2021. <span>Powered by <a rel="nofollow noopener noreferrer" href="https://www.helpscout.com/knowledge-base/" target="_blank">Help Scout</a></span>
+</p>
+            </footer>
+        </section><!--/.fluid-container-->
+<section id="contactModal" class="modal hide" tabindex="-1">
+	<h2>Contact Us</h2>
+	<a href="#" id="closeBtn" data-dismiss="modal"><i
+		class="icon-close"></i></a>
+	<div class="modal-body">
+		<form data-parsley-validate novalidate method="post"
+			action="contact.html" enctype="multipart/form-data"
+			class="form-horizontal contact">
+			<div class="control-group">
+				<label for="md-name" class="control-label">Name</label>
+				<div class="controls">
+					<input type="text" name="name" id="md-name"
+						placeholder="(optional)">
+				</div>
+				<!--/controls-->
+			</div>
+			<!--/control-group-->
+			<div class="control-group">
+				<label for="md-email" class="control-label">Email</label>
+				<div class="controls">
+					<input type="email" name="email" id="md-email"
+						data-parsley-required="true" data-parsley-type="email"
+						data-parsley-notblank="true"
+                        data-parsley-trigger="change"
+						data-parsley-required-message="Email is required">
+					<input type="text" name="phone" id="phone" value="">
+				</div>
+				<!--/controls-->
+			</div>
+			<!--/control-group-->
+			<div class="control-group">
+				<label for="md-subject" class="control-label">Subject</label>
+				<div class="controls">
+					<input type="text" name="subject" id="md-subject"
+						data-parsley-required="true" data-parsley-notblank="true"
+						data-parsley-required-message="Subject is required">
+				</div>
+				<!--/controls-->
+			</div>
+			<!--/control-group-->
+			<div class="control-group">
+				<label for="md-message" class="control-label">Message</label>
+				<div class="controls">
+					<textarea name="message" id="md-message" data-parsley-required="true"
+						data-parsley-notblank="true"
+						data-parsley-required-message="Message is required"></textarea>
+				</div>
+				<!--/controls-->
+			</div>
+			<!-- /control-group -->
+			<div class="control-group">
+				<label for="file-upload" class="control-label">Upload file</label>
+				<div class="controls">
+					<input id="file-upload" type="file" name="upload" data-parsley-max-file-size="10" />
+				</div>
+			</div>
+			<!--/control-group-->
+			<div class="form-actions">
+					<div class="g-recaptcha" data-sitekey=6LdhmSQTAAAAAMdAtrGjQeyN1HWWWAc5iN8FZ_MD></div>
+				<input type="submit" class="btn" value="Send">
+			</div>
+			<!--/form-actions-->
+		</form>
+	</div>
+	<!--/modal-body-->
+</section>
+    <script src="assets/javascripts/app3.min.js"></script>
+<script>
+// keep iOS links from opening safari
+if(("standalone" in window.navigator) && window.navigator.standalone){
+// If you want to prevent remote links in standalone web apps opening Mobile Safari, change 'remotes' to true
+var noddy, remotes = false;
+document.addEventListener('click', function(event) {
+noddy = event.target;
+while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+noddy = noddy.parentNode;
+}
+if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)){
+event.preventDefault();
+document.location.href = noddy.href;
+}
+},false);
+}
+$('#contactModal').on('shown', function () {
+  $('#md-name').focus();
+});
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"errorBeacon":"bam-cell.nr-data.net","licenseKey":"248c08e607","agent":"","beacon":"bam-cell.nr-data.net","applicationTime":51,"applicationID":"725545300","transactionName":"YlUGMhMECxBTWkJaW1sfNAoAHCYMXE1EXFhZVRYnAhEMDFwWVVxaQUILCg0AFxAceERHXVZcARVPEwwGRQ==","queueTime":0}</script>
+    
+</html>
