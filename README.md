@@ -70,17 +70,23 @@ If you can’t access your FTP credentials etc. you can use a WordPress File Man
 
    1. After Installing & Activating the Plugin Go to file manager
    
-   ![File Manager](https://i.imgur.com/YoT3oQi.png)
+   	![File Manager](https://i.imgur.com/YoT3oQi.png)
+	
    2. You will get a file explorer like this
    
-   ![File Explorer](https://i.imgur.com/m6wVxp4.png)
+  	 ![File Explorer](https://i.imgur.com/m6wVxp4.png)
    
    3. Ensure that you are in the root directory & create a new file (it’s the folder [where wp-config.php and wp-load.php are located](recordit.co/jbtM0WPfcw)).
-   ![New File](https://i.imgur.com/QuPi5uo.png)
+  	 
+	 ![New File](https://i.imgur.com/QuPi5uo.png)
+	 
    4. Rename the file **rocket-clean-domain.php file** & open the code editor
-   ![Code Editor](https://i.imgur.com/93X7S9o.png)
+   	
+	![Code Editor](https://i.imgur.com/93X7S9o.png)
+	
    5. Add the code mentioned at the top, save & close.
-   ![Save Code](https://i.imgur.com/5LVl0F8.png)
+   	
+	![Save Code](https://i.imgur.com/5LVl0F8.png)
     
 You have sucessfully created a cron job script, now lets schedule it & run it.
 
