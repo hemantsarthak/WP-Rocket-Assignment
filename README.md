@@ -112,12 +112,15 @@ Instead of using your own hosting provider/server for the cron job you can use v
     [Easy Cron](https://www.easycron.com/) is a service that lets you create cron jobs easily. The free plans let you create cron jobs that run every 20 mins. 
 Just create an account and enter your cron job address with time intervals like 
 Path/URL  http://www.example.com/path/to/wp/installation/root/rocket-clean-domain.php
+
 ![Easy Cron](https://i.imgur.com/Pabh5N5.png)
+
 Guide for [Easy Cron External Cron Setup](https://www.easycron.com/cron-job-tutorials/how-to-set-up-cron-job-for-wordpress)
     
         2.[Cron-Job](https://cron-job.org/en/) (Free)
 You can use cron-job.org to add a cron job for a minute by minute to yearly basis.
 Simply create an account and add the URL for cron job like: http://www.example.com/path/to/wp/installation/root/rocket-clean-domain.php
+
 ![CronJob](https://i.imgur.com/JwUNGFH.png)
 
     Set the time & enjoy your automated cache cleaning system!
