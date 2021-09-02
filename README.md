@@ -194,7 +194,7 @@ function input_cache_flush() {
 
 # Minor Docs Update Suggestion & Demo
 
-I noticed that the https://docs.wp-rocket.me/article/1279-cron-and-wp-rocket didn't have link or guidance to how to set the time for the cron job, I added it as demo on this like netlify.cn .
+I noticed that the https://docs.wp-rocket.me/article/1279-cron-and-wp-rocket didn't have link or guidance to how to set the time for the cron job, I added it as demo on this like https://wprocketminordocupdate.netlify.app/.
 
 ![Netlify](https://i.imgur.com/dHOeUJP.png)
 
