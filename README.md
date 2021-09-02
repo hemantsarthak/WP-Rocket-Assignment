@@ -24,7 +24,7 @@ if ( function_exists( 'rocket_clean_domain' ) ) {
  ```
  > **Note:** If you place it in a different location then root, you need to edit the path in require( 'wp-load.php' ); above to match its location. 
  
-Set up to run when your site have the lowest amount of visitors based or any time you desire.
+Set up to run when your site have the lowest amount of visitors or any time you desire.
 
 You can use the tool [Crontab-generator](https://crontab-generator.org/) to set up timings for the cron job if you are using UNIX/SERVER based cron jobs via cPanel etc.
 
@@ -34,11 +34,12 @@ If you want to use wp-cron these two plugins should help:
 
 ##### WP Rocket Resources:
 [Cache Clearing via Cron Job](https://docs.wp-rocket.me/article/494-how-to-clear-cache-via-cron-job)
+
 [Cron Jobs EXPLAINED & Creation Guide](https://docs.wp-rocket.me/article/1279-cron-and-wp-rocket#setting-up-cron-job)
 
 ### Step by Step Guide: 
 Here is a detailed guide that you can follow as well:
-##### Creating a Cron Job
+#### Creating a Cron Job
 1.	Create a php file named **rocket-clean-domain.php**. You can use a notepad or any code editor you want.
 2.	Add this code in the file & save it
 ```
@@ -91,7 +92,7 @@ If you can’t access your FTP credentials etc. you can use a WordPress File Man
 You have sucessfully created a cron job script, now lets schedule it & run it.
 
     
-##### Scheduling a Cron Job
+#### Scheduling a Cron Job
 Before proceding, please read the [**difference between WP Cron & Real Cron**](https://docs.wp-rocket.me/article/1279-cron-and-wp-rocket#wp-cron-vs-real-cron).
 
 You have three options that you can use to create a cron job:
