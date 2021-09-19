@@ -167,7 +167,7 @@ I might be totally wrong about this appproach, but I think we can add the automa
 
 This feature can be implemented by capturing the cron job location and of loading the task to WP Cron or more likely to Easy Cron or Cron-Job.org,
 
-This fetaure if using third paprty service will only be available to RocketCDN users as an extra bonus.
+This fetaure if using third party service will only be available to RocketCDN users as an extra bonus.
 
 Here is the basic kind of not working code, I should be able to make it work with some guidance from the Associate or Senior Developers about the testing metodologies/priorities used,WP Rocket functions & code structure.
 
