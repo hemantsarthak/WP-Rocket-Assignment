@@ -200,4 +200,4 @@ I noticed that the https://docs.wp-rocket.me/article/1279-cron-and-wp-rocket did
 ![Netlify](https://i.imgur.com/dHOeUJP.png)
 
 # Notes
-I apologize for the delayed submission, hope you will still consider me for a role at WP Rocket. Please let me know if you want me to create a full plugin for the cache auto clean as well.
+Hope you will still consider me for a role at WP Rocket. Please let me know if you want me to create a full plugin for the cache auto clean as well.
